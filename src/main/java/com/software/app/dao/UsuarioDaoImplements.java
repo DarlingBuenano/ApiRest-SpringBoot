@@ -1,10 +1,18 @@
 package com.software.app.dao;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.software.app.models.Usuario;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Repository
+@Transactional
 public class UsuarioDaoImplements implements UsuarioDao {
 	
 	@PersistenceContext
@@ -12,19 +20,17 @@ public class UsuarioDaoImplements implements UsuarioDao {
 
 	@Override
 	public String agregarUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
+		entityManager.merge(usuario);
+		return "Usuario registrado correctamente";
 	}
 
 	@Override
 	public Usuario obtenerUsuario(Integer id_usuario) {
-		Usuario usuario = entityManager.find(Usuario.class, id_usuario);
-		return usuario;
+		return entityManager.find(Usuario.class, id_usuario);
 	}
 
 	@Override
 	public String actualizarUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
