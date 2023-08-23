@@ -68,10 +68,19 @@ CREATE TABLE rol_rolOpciones
     FOREIGN KEY (rol_opcion_id) REFERENCES rol_opciones(id)
 );
 
+--Valores pre-grabados
+insert into roles (nombre_rol) values ("Usuario");
+insert into roles (nombre_rol) values ("Administrador");
 
-insert into personas (nombres, apellidos, identificacion, fecha_nacimiento) values ("Darlyn Omar", "Buenaño Vera", "1112223334", "1999-02-05");
-insert into usuarios (nombre_usuario, password, correo, sesion_activa, estado, persona_id) values("Darlyn05", "D123456$", "dbuenanov@mail.com", "1", "Disponible", 1);
+insert into personas (nombres, apellidos, identificacion, fecha_nacimiento) 
+values ("Darlyn Omar", "Buenaño Vera", "1112223334", "1999-02-05");
+insert into personas (nombres, apellidos, identificacion, fecha_nacimiento) 
+values ("Cristian Jackson", "Buenaño Vera", "1112223334", "2000-06-10");
 
-insert into personas (nombres, apellidos, identificacion, fecha_nacimiento) values ("Cristian Jackson", "Buenaño Vera", "1112223334", "2000-06-10");
-insert into usuarios (nombre_usuario, password, correo, sesion_activa, estado, persona_id) values("Cristian06", "C123456$", "cbuenanov@mail.com", "1", "Disponible", 2);
-select * from personas;
+insert into usuarios (nombre_usuario, password, correo, sesion_activa, estado, persona_id) 
+values("Darlyn05", "D123456$", "dbuenanov@mail.com", "1", "Disponible", 1);
+insert into usuarios (nombre_usuario, password, correo, sesion_activa, estado, persona_id) 
+values("Cristian06", "C123456$", "cbuenanov@mail.com", "1", "Disponible", 2);
+
+insert into rol_usuarios (rol_id, usuario_id) values (1, 1);
+insert into rol_usuarios (rol_id, usuario_id) values (2, 2);

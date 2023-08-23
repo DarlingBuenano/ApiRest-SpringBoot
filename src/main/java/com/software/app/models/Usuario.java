@@ -22,7 +22,7 @@ public class Usuario {
     private String password;
 
     @Column(name = "sesion_activa")
-    private String sesion_activa;
+    private char sesion_activa;
 
     @Column(name = "estado")
     private String estado;
@@ -33,7 +33,7 @@ public class Usuario {
     public Usuario() {}
     
     public Usuario(String nombre_usuario, String correo, String password, 
-    		String sesion_activa, String estado, Integer persona_id) {
+    		char sesion_activa, String estado, Integer persona_id) {
     	this.nombre_usuario = nombre_usuario;
     	this.correo = correo;
     	this.password = password;
@@ -74,11 +74,11 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public String getSesion_activa() {
+	public char getSesion_activa() {
 		return sesion_activa;
 	}
 
-	public void setSesion_activa(String sesion_activa) {
+	public void setSesion_activa(char sesion_activa) {
 		this.sesion_activa = sesion_activa;
 	}
 
